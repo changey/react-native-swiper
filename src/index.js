@@ -556,6 +556,8 @@ export default class extends Component {
     };
 
     const cardWidth = Dimensions.get('window').width - (this.props.cardMargin + this.props.cardPreviewWidth) * 2;
+    console.log("renderscrollView this.props.cardMargin", this.props.cardMargin)
+    console.log("renderscrollView this.props.cardPreviewWidth", this.props.cardPreviewWidth)
 
     if (Platform.OS === 'ios') {
       return (
@@ -621,6 +623,8 @@ export default class extends Component {
       }
 
       const cardWidth = Dimensions.get('window').width - (this.props.cardMargin + this.props.cardPreviewWidth) * 2;
+      console.log("render this.props.cardMargin", this.props.cardMargin)
+      console.log("render this.props.cardPreviewWidth", this.props.cardPreviewWidth)
 
       const cardStyle = {
         flex: 1,
