@@ -624,15 +624,15 @@ export default class extends Component {
         pages.push('0')
       }
 
-      const cardWidth = Dimensions.get('window').width - (this.props.cardMargin + this.props.cardPreviewWidth) * 2;
-      console.log("render this.props.cardMargin", this.props.cardMargin)
-      console.log("render this.props.cardPreviewWidth", this.props.cardPreviewWidth)
+      const cardWidth = Dimensions.get('window').width - (props.cardMargin + props.cardPreviewWidth) * 2;
+      console.log("render this.props.cardMargin", props.cardMargin)
+      console.log("render this.props.cardPreviewWidth", props.cardPreviewWidth)
 
       const cardStyle = {
         flex: 1,
         backgroundColor: '#ccc',
         width: cardWidth,
-        margin: this.props.cardMargin,
+        margin: props.cardMargin,
         height: cardWidth,
         alignItems: 'center',
         justifyContent: 'center',
