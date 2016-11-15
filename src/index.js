@@ -585,7 +585,9 @@ export default class extends Component {
           snapToInterval={CARD_WIDTH + CARD_MARGIN*2}
           snapToAlignment="center"
           automaticallyAdjustInsets={false}
-          {...this.props}
+          horizontal={true}
+          decelerationRate={0}
+          // {...this.props}
           {...this.scrollViewPropOverrides()}
           // contentContainerStyle={[styles.wrapper, this.props.style]}
           contentOffset={this.state.offset}
