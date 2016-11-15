@@ -153,7 +153,9 @@ export default class extends Component {
     autoplay: false,
     autoplayTimeout: 2.5,
     autoplayDirection: true,
-    index: 0
+    index: 0,
+    cardMargin: 5,
+    cardPreviewWidth: 20,
   }
 
   /**
