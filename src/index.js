@@ -584,14 +584,14 @@ export default class extends Component {
           contentContainerStyle={styles.content}
           snapToInterval={CARD_WIDTH + CARD_MARGIN*2}
           snapToAlignment="start"
-          automaticallyAdjustInsets={false}>
-          // {...this.props}
-          // {...this.scrollViewPropOverrides()}
+          automaticallyAdjustInsets={false}
+          {...this.props}
+          {...this.scrollViewPropOverrides()}
           // contentContainerStyle={[styles.wrapper, this.props.style]}
-          // contentOffset={this.state.offset}
-          // onScrollBeginDrag={this.onScrollBegin}
-          // onMomentumScrollEnd={this.onScrollEnd}
-          // onScrollEndDrag={this.onScrollEndDrag}>
+          contentOffset={this.state.offset}
+          onScrollBeginDrag={this.onScrollBegin}
+          onMomentumScrollEnd={this.onScrollEnd}
+          onScrollEndDrag={this.onScrollEndDrag}>
           {pages}
         </ScrollView>
        )
