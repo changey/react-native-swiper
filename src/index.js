@@ -580,15 +580,14 @@ export default class extends Component {
       return (
         <ScrollView ref='scrollView'
           style={styles.wrapper}
-          contentContainerStyle={styles.content}
+          contentContainerStyle={[styles.content, this.props.style]}
           snapToInterval={CARD_WIDTH + CARD_MARGIN*2}
           snapToAlignment="start"
           automaticallyAdjustInsets={false}
           horizontal={true}
           decelerationRate={0}
-          // {...this.props}
+          {...this.props}
           {...this.scrollViewPropOverrides()}
-          // contentContainerStyle={[styles.wrapper, this.props.style]}
           contentOffset={this.state.offset}
           onScrollBeginDrag={this.onScrollBegin}
           onMomentumScrollEnd={this.onScrollEnd}
