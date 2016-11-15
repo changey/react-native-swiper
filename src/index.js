@@ -559,7 +559,7 @@ export default class extends Component {
       alignItems: 'center',
     };
 
-    const cardWidth = Dimensions.get('window').width - (this.props.cardMargin + this.props.cardPreviewWidth) * 2;
+    const cardWidth = Dimensions.get('window').width - (CARD_MARGIN + CARD_PREVIEW_WIDTH) * 2;
     console.log("renderscrollView this.props.cardMargin", this.props.cardMargin)
     console.log("renderscrollView this.props.cardPreviewWidth", this.props.cardPreviewWidth)
 
@@ -568,7 +568,7 @@ export default class extends Component {
         <ScrollView ref='scrollView'
           style={styles.wrapper}
           contentContainerStyle={contentStyle}
-          snapToInterval={cardWidth + this.props.cardMargin*2}
+          snapToInterval={cardWidth + CARD_MARGIN*2}
           snapToAlignment="start"
           {...this.props}
           {...this.scrollViewPropOverrides()}
@@ -629,6 +629,7 @@ export default class extends Component {
       const cardWidth = Dimensions.get('window').width - (props.cardMargin + props.cardPreviewWidth) * 2;
       console.log("render this.props.cardMargin", props.cardMargin)
       console.log("render this.props.cardPreviewWidth", props.cardPreviewWidth)
+      console.log("render cardWidth", cardWidth)
 
       const cardStyle = {
         flex: 1,
