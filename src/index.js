@@ -16,8 +16,8 @@ import {
 
 const { width, height } = Dimensions.get('window')
 
-const CARD_PREVIEW_WIDTH = 30;
-const CARD_MARGIN = 10;
+const CARD_PREVIEW_WIDTH = 40;
+const CARD_MARGIN = 20;
 const CARD_WIDTH = Dimensions.get('window').width - (CARD_MARGIN + CARD_PREVIEW_WIDTH) * 2;
 
 /**
@@ -659,7 +659,7 @@ export default class extends Component {
         if (props.loadMinimal) {
           if (i >= (index + loopVal - props.loadMinimalSize) &&
             i <= (index + loopVal + props.loadMinimalSize)) {
-            return <View style={[pageStyle, cardStyle]} key={i}>{children[page]}</View>
+            return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
           } else {
             return (
               <View style={pageStyleLoading} key={`loading-${i}`}>
@@ -668,11 +668,11 @@ export default class extends Component {
             );
           }
         } else {
-          return <View style={[pageStyle, cardStyle]} key={i}>{children[page]}</View>
+          return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
         }
       })
     } else {
-      pages = <View style={[pageStyle, cardStyle]} key={0}>{children}</View>
+      pages = <View style={[pageStyle, styles.card]} key={0}>{children}</View>
     }
 
     return (
