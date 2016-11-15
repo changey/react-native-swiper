@@ -17,7 +17,7 @@ import {
 const { width, height } = Dimensions.get('window')
 
 const CARD_PREVIEW_WIDTH = 25;
-const CARD_MARGIN = 10;
+const CARD_MARGIN = 5;
 const CARD_WIDTH = Dimensions.get('window').width * 0.9 - (CARD_MARGIN + CARD_PREVIEW_WIDTH) * 2;
 
 /**
