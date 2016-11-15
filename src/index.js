@@ -16,11 +16,33 @@ import {
 
 const { width, height } = Dimensions.get('window')
 
+const CARD_PREVIEW_WIDTH = 20
+const CARD_MARGIN = 5;
+const CARD_WIDTH = Dimensions.get('window').width - (CARD_MARGIN + CARD_PREVIEW_WIDTH) * 2;
+
 /**
  * Default styles
  * @type {StyleSheetPropType}
  */
 const styles = {
+  wrapper: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  content: {
+    marginTop: 20,
+    paddingHorizontal: CARD_PREVIEW_WIDTH,
+    alignItems: 'center',
+  },
+  card: {
+    flex: 1,
+    backgroundColor: '#ccc',
+    width: CARD_WIDTH,
+    margin: CARD_MARGIN,
+    height: CARD_WIDTH,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   container: {
     backgroundColor: 'transparent',
     position: 'relative'
@@ -544,6 +566,10 @@ export default class extends Component {
     if (Platform.OS === 'ios') {
       return (
         <ScrollView ref='scrollView'
+          style={styles.wrapper}
+          contentContainerStyle={styles.content}
+          snapToInterval={CARD_WIDTH + CARD_MARGIN*2}
+          snapToAlignment="start"
           {...this.props}
           {...this.scrollViewPropOverrides()}
           contentContainerStyle={[styles.wrapper, this.props.style]}
@@ -551,7 +577,6 @@ export default class extends Component {
           onScrollBeginDrag={this.onScrollBegin}
           onMomentumScrollEnd={this.onScrollEnd}
           onScrollEndDrag={this.onScrollEndDrag}>
-          <Text>foo</Text>
           {pages}
         </ScrollView>
        )
@@ -605,7 +630,7 @@ export default class extends Component {
         if (props.loadMinimal) {
           if (i >= (index + loopVal - props.loadMinimalSize) &&
             i <= (index + loopVal + props.loadMinimalSize)) {
-            return <View style={pageStyle} key={i}>{children[page]}</View>
+            return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
           } else {
             return (
               <View style={pageStyleLoading} key={`loading-${i}`}>
@@ -614,11 +639,11 @@ export default class extends Component {
             );
           }
         } else {
-          return <View style={pageStyle} key={i}>{children[page]}</View>
+          return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
         }
       })
     } else {
-      pages = <View style={pageStyle} key={0}>{children}</View>
+      pages = <View style={[pageStyle, styles.card]} key={0}>{children}</View>
     }
 
     return (
