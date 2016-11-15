@@ -588,9 +588,9 @@ export default class extends Component {
           {...this.props}
           {...this.scrollViewPropOverrides()}
           // contentContainerStyle={[styles.wrapper, this.props.style]}
-          contentOffset={this.state.offset}
-          onScrollBeginDrag={this.onScrollBegin}
-          onMomentumScrollEnd={this.onScrollEnd}
+          // contentOffset={this.state.offset}
+          // onScrollBeginDrag={this.onScrollBegin}
+          // onMomentumScrollEnd={this.onScrollEnd}
           onScrollEndDrag={this.onScrollEndDrag}>
           {pages}
         </ScrollView>
@@ -660,7 +660,7 @@ export default class extends Component {
         if (props.loadMinimal) {
           if (i >= (index + loopVal - props.loadMinimalSize) &&
             i <= (index + loopVal + props.loadMinimalSize)) {
-            return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
+            return <View style={[styles.card]} key={i}>{children[page]}</View>
           } else {
             return (
               <View style={pageStyleLoading} key={`loading-${i}`}>
@@ -669,11 +669,11 @@ export default class extends Component {
             );
           }
         } else {
-          return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
+          return <View style={[styles.card]} key={i}>{children[page]}</View>
         }
       })
     } else {
-      pages = <View style={[pageStyle, styles.card]} key={0}>{children}</View>
+      pages = <View style={[styles.card]} key={0}>{children}</View>
     }
 
     return (
