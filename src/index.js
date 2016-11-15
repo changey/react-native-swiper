@@ -29,20 +29,6 @@ const styles = {
     flex: 1,
     backgroundColor: '#F5FCFF',
   },
-  content: {
-    marginTop: 20,
-    paddingHorizontal: CARD_PREVIEW_WIDTH,
-    alignItems: 'center',
-  },
-  card: {
-    flex: 1,
-    backgroundColor: '#ccc',
-    width: CARD_WIDTH,
-    margin: CARD_MARGIN,
-    height: CARD_WIDTH,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   container: {
     backgroundColor: 'transparent',
     position: 'relative'
@@ -563,12 +549,20 @@ export default class extends Component {
   }
 
   renderScrollView = pages => {
+    const contentStyle = {
+      marginTop: 20,
+      paddingHorizontal: this.props.cardPreviewWidth,
+      alignItems: 'center',
+    };
+
+    const cardWidth = Dimensions.get('window').width - (this.props.cardMargin + this.props.cardPreviewWidth) * 2;
+
     if (Platform.OS === 'ios') {
       return (
         <ScrollView ref='scrollView'
           style={styles.wrapper}
-          contentContainerStyle={styles.content}
-          snapToInterval={CARD_WIDTH + CARD_MARGIN*2}
+          contentContainerStyle={contentStyle}
+          snapToInterval={cardWidth + this.props.cardMargin*2}
           snapToAlignment="start"
           {...this.props}
           {...this.scrollViewPropOverrides()}
@@ -626,11 +620,23 @@ export default class extends Component {
         pages.push('0')
       }
 
+      const cardWidth = Dimensions.get('window').width - (this.props.cardMargin + this.props.cardPreviewWidth) * 2;
+
+      const cardStyle = {
+        flex: 1,
+        backgroundColor: '#ccc',
+        width: cardWidth,
+        margin: this.props.cardMargin,
+        height: cardWidth,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+
       pages = pages.map((page, i) => {
         if (props.loadMinimal) {
           if (i >= (index + loopVal - props.loadMinimalSize) &&
             i <= (index + loopVal + props.loadMinimalSize)) {
-            return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
+            return <View style={[pageStyle, cardStyle]} key={i}>{children[page]}</View>
           } else {
             return (
               <View style={pageStyleLoading} key={`loading-${i}`}>
@@ -639,11 +645,11 @@ export default class extends Component {
             );
           }
         } else {
-          return <View style={[pageStyle, styles.card]} key={i}>{children[page]}</View>
+          return <View style={[pageStyle, cardStyle]} key={i}>{children[page]}</View>
         }
       })
     } else {
-      pages = <View style={[pageStyle, styles.card]} key={0}>{children}</View>
+      pages = <View style={[pageStyle, cardStyle]} key={0}>{children}</View>
     }
 
     return (
