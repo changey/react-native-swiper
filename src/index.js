@@ -551,6 +551,7 @@ export default class extends Component {
           onScrollBeginDrag={this.onScrollBegin}
           onMomentumScrollEnd={this.onScrollEnd}
           onScrollEndDrag={this.onScrollEndDrag}>
+          <Text>foo</Text>
           {pages}
         </ScrollView>
        )
