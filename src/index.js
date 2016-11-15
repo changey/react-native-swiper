@@ -583,7 +583,7 @@ export default class extends Component {
           style={styles.wrapper}
           contentContainerStyle={styles.content}
           snapToInterval={CARD_WIDTH + CARD_MARGIN*2}
-          snapToAlignment="center"
+          snapToAlignment="start"
           automaticallyAdjustInsets={false}
           horizontal={true}
           decelerationRate={0}
