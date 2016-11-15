@@ -36,7 +36,6 @@ const styles = {
   },
   card: {
     flex: 1,
-    backgroundColor: '#ccc',
     width: CARD_WIDTH,
     margin: CARD_MARGIN,
     height: CARD_WIDTH,
