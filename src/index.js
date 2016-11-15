@@ -126,7 +126,9 @@ export default class extends Component {
     autoplayTimeout: PropTypes.number,
     autoplayDirection: PropTypes.bool,
     index: PropTypes.number,
-    renderPagination: PropTypes.func
+    renderPagination: PropTypes.func,
+    cardMargin: PropTypes.number,
+    cardPreviewWidth: PropTypes.number
   }
 
   /**
